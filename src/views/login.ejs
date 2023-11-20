@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça login na sua conta ESW</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/42/42972.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/globalStyles.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    
+    <div class="service-logo">
+        <img src="https://i.imgur.com/cm5HgPb.png">
+    </div>
+
+    <section class="container">
+        <form action="">
+            <div class="warning hidden">Nome ou Senha incorretos!</div>
+            <div class="title">Faça login na sua conta</div>
+
+            <input class="input-nome" type="text" placeholder="Nome">
+            <input class="input-senha" type="password" placeholder="Senha">
+            <div class="input-checkbox">
+                <input type="checkbox" id="checkbox-conect">
+                <label for="checkbox-conect">Manter Conectado</label>
+            </div>
+
+            <button class="btn-submit" type="submit">Entrar</button>
+            <div class="info">Novo no ESW?
+                <a href="/signup">Inscreva-se</a>
+            </div>
+        </form>
+    </section>
+
+    <script src="/JS/login.js"></script>
+</body>
+</html>

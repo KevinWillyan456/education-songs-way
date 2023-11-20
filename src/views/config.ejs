@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Sistema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/42/42972.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/globalStyles.css">
+    <link rel="stylesheet" href="/css/config.css">
+</head>
+<body>
+    <div class="user-info">
+        <div class="icon-user">
+            <ion-icon name="person" id="userPersonIcon"></ion-icon>
+            <div class="icon-person-container" id="userPersonContainer">
+                <img src="" class="icon-person-img" id="userPersonImg">
+            </div>
+        </div>
+        <div class="wrap-text">
+            <div class="access">Administrador</div>
+            <div class="name" id="userName">Carregando...</div>
+        </div>
+    </div>
+
+    <a href="/home" class="voltar-para-o-site">Voltar para o PwMusic</a>
+
+    <div class="warning hidden" id="warning"></div>
+
+    <div class="container-total-overflow">
+        <div class="container-total">
+            <div class="content-total">
+                <div class="title">Total de Playlists</div>
+                <div class="icon">
+                    <ion-icon name="musical-notes"></ion-icon>
+                </div>
+                <div class="total" id="totalPlaylists">0</div>
+            </div>
+            <div class="content-total">
+                <div class="title">Total de Vídeos</div>
+                <div class="icon">
+                    <ion-icon name="musical-notes"></ion-icon>
+                </div>
+                <div class="total" id="totalVideos">0</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-playlist-overflow">
+        <div class="container-playlist">
+            <div class="header-playlist">
+                <div class="title">Todas as Playlists</div>
+                <button class="btn-adicionar" id="btnAddPlaylist">
+                    <ion-icon name="add"></ion-icon>
+                    Adicionar
+                </button>
+            </div>
+            <div class="content-playlist" id="contentPlaylist">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-playlist-overflow hidden" id="formAddPlaylist">
+        <form class="form-playlist" id="formAddPlaylistIn">
+            <div class="title">Adicionar uma nova Playlist</div>
+            <div class="fields">
+                <input class="field" type="text" placeholder="Nome" id="formAddPlaylistInName">
+                <input class="field" type="text" placeholder="Gênero" id="formAddPlaylistInGender">
+                <input class="field" type="text" placeholder="Thumbnail" id="formAddPlaylistInThumbnail">
+            </div>
+            <div class="preview-thumbnail">
+                <div class="preview-text">Preview</div>
+                <img src="" id="formAddPlaylistInPreviewThumbnail">
+            </div>
+            <textarea class="field-area" placeholder="Descrição" maxlength="1500" id="formAddPlaylistInDescription"></textarea>
+            <button class="btn-add" type="submit">Adicionar</button>
+        </form>
+    </div>
+
+    <div class="container-playlist-to-manage-overflow hidden" id="containerPlaylistToManage">
+        <div class="user-info-m">
+            <div class="icon-user">
+                <ion-icon name="person" id="userPersonIconMobile"></ion-icon>
+                <div class="icon-person-container" id="userPersonContainerMobile">
+                    <img src="" class="icon-person-img" id="userPersonImgMobile">
+                </div>
+            </div>
+            <div class="wrap-text">
+                <div class="access">Administrador</div>
+                <div class="name" id="userNameMobile">Carregando...</div>
+            </div>
+        </div>
+        <button class="playlist-to-manage-back" id="playlistToManageBack">Voltar</button>
+        <div class="container-playlist-to-manage">
+            <div class="main-playlist">
+                <div class="cover">
+                    <img src="" id="containerPlaylistToManageCover">
+                </div>
+                <div class="content">
+                    <div class="title" id="containerPlaylistToManageTitle"></div>
+                    <div class="description" id="containerPlaylistToManageDescription"></div>
+                    <div class="details">
+                        <div class="created" id="containerPlaylistToManageCreated"></div>
+                        <div class="total-video" id="containerPlaylistToManageTotalVideos"></div>
+                        <div class="gender" id="containerPlaylistToManageGender"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="interactions">
+                <button class="btn-adicionar" id="btnAddVideo">
+                    <ion-icon name="add"></ion-icon>
+                    Adicionar Música
+                </button>
+                <div class="btn-adicionar-m" id="btnAddVideoMobile">
+                    <ion-icon name="add"></ion-icon>
+                    Música
+                </div>
+                <button class="btn-editar" id="btnEditPlaylist">
+                    <ion-icon name="pencil"></ion-icon>
+                    Editar
+                </button>
+                <button class="btn-excluir" id="btnDeletePlaylist">
+                    <ion-icon name="close"></ion-icon>
+                    Excluir
+                </button>
+            </div>
+            <div class="title-all-videos">Todas as Vídeos</div>
+            <div class="content-videos" id="contentVideos">
+                <div class="videos-item">
+                    <div class="item-cover">
+                        <img src="">
+                    </div>
+                    <div class="item-title"></div>
+                </div>
+            </div>
+            <div class="blank"></div>
+            <div class="focus hidden" id="focusVideo">
+                <div class="video">
+                    <div class="main-video">
+                        <div class="cover">
+                            <img src="" id="focusVideoCover">
+                        </div>
+                        <div class="content">
+                            <div class="title" id="focusVideoTitle"></div>
+                            <div class="details">
+                                <div class="created" id="focusVideoCreated"></div>
+                                <div target="_blank" class="url">URL: <a href="#" target="_blank" id="focusVideoURL"></a></div>
+                                <div class="gender" id="focusVideoGender"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="interactions">
+                        <button class="btn-editar" id="btnEditVideo">
+                            <ion-icon name="pencil"></ion-icon>
+                            Editar
+                        </button>
+                        <button class="btn-excluir" id="btnDeleteVideo">
+                            <ion-icon name="close"></ion-icon>
+                            Excluir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-video-overflow hidden" id="formAddVideo">
+                <form class="form-video" id="formAddVideoIn">
+                    <div class="title">Adicionar uma nova Música</div>
+                    <div class="fields">
+                        <input class="field" type="text" placeholder="Nome" id="formVideoAddVideoInputNome">
+                        <input class="field" type="text" placeholder="URL" id="formVideoAddVideoInputURL">
+                        <input class="field" type="text" placeholder="Thumbnail" id="formVideoAddVideoInputThumbnail">
+                    </div>
+                    <div class="preview-thumbnail">
+                        <div class="preview-text">Preview</div>
+                        <img src="" id="formVideoAddVideoPreviewThumbnail">
+                    </div>
+                    <button class="btn-add" type="submit">Adicionar</button>
+                </form>
+            </div>
+            <div class="form-video-overflow hidden" id="formEditVideo">
+                <form class="form-video" id="formEditVideoIn">
+                    <div class="title">Editar Música</div>
+                    <div class="fields">
+                        <input class="field" type="text" placeholder="Nome" id="formVideoEditInputNome">
+                        <input class="field" type="text" placeholder="URL" id="formVideoEditInputURL">
+                        <input class="field" type="text" placeholder="Thumbnail" id="formVideoEditInputThumbnail">
+                    </div>
+                    <div class="preview-thumbnail">
+                        <div class="preview-text">Preview</div>
+                        <img src="" id="formVideoEditPreviewThumbnail">
+                    </div>
+                    <button class="btn-add" type="submit">Salvar</button>
+                </form>
+            </div>
+            <div class="form-video-delete-overflow hidden" id="formDeleteVideo">
+                <div class="form-video-delete">
+                    <div class="title">Tem certeza que deseja excluir esta Música?</div>
+                    <div class="video-delete-name" id="videoDeleteName">Minha Música</div>
+                    <div class="video-delete-warning">Esta ação é irreversível</div>
+                    <div class="interactions-delete">
+                        <button class="cancel" id="formVideoCancel">Cancelar</button>
+                        <button class="delete" id="formVideoDeleteBtn">Excluir</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-playlist-overflow hidden" id="formEditPlaylist">
+                <form class="form-playlist" id="formEditPlaylistIn">
+                    <div class="title">Editar Playlist</div>
+                    <div class="fields">
+                        <input class="field" type="text" placeholder="Nome" id="formPlaylistEditInputNome">
+                        <input class="field" type="text" placeholder="Gênero" id="formPlaylistEditInputGender">
+                        <input class="field" type="text" placeholder="Thumbnail" id="formPlaylistEditInputThumbnail">
+                    </div>
+                    <div class="preview-thumbnail">
+                        <div class="preview-text">Preview</div>
+                        <img src="" id="formPlaylistEditPreviewThumbnail">
+                    </div>
+                    <textarea class="field-area" placeholder="Descrição" maxlength="1500" id="formPlaylistEditDescription"></textarea>
+                    <button class="btn-add" type="submit">Salvar</button>
+                </form>
+            </div>
+            <div class="form-playlist-delete-overflow hidden" id="formDeletePlaylist">
+                <form class="form-playlist-delete" id="formDeletePlaylistContent">
+                    <div class="title">Tem certeza que deseja excluir esta Playlist?</div>
+                    <div class="playlist-delete-name" id="playlistDeleteName">Minha Playlist</div>
+                    <input class="field" type="text" placeholder="Digite o nome da playlist para confirmar..." id="playlistDeleteNameInputToConfirm">
+                    <div class="playlist-delete-warning">Esta ação é irreversível</div>
+                    <div class="playlist-delete-warning">Esta ação apagará todas os vídeos nessa playlist</div>
+                    <div class="interactions-delete">
+                        <button class="cancel" id="formPlaylistCancel" type="reset">Cancelar</button>
+                        <button class="delete" type="submit">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/JS/config.js"></script>
+</body>
+</html>
