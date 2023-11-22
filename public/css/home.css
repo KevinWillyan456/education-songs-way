@@ -1355,6 +1355,7 @@ iframe {
     display: flex;
     margin-left: 30px;
     cursor: pointer;
+    padding-top: 8px;
 }
 
 .main-select-playlists {

@@ -25,6 +25,7 @@
 .header-mobile .service-logo-mobile {
     cursor: pointer;
     width: 120px;
+    padding-top: 8px;
 }
 .header-mobile .service-logo-mobile img {
     width: 100%;
