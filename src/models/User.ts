@@ -49,12 +49,15 @@ const userSchema = new Schema<IUser>({
         },
     ],
     lastAccessedPlaylist: { type: String, default: 'Playlist Introdutória' },
-    lastAccessedPlaylistName: { type: String, default: 'Playlist Introdutória' },
+    lastAccessedPlaylistName: {
+        type: String,
+        default: 'Playlist Introdutória',
+    },
     profilePicture: { type: String, default: '' },
     myPlaylists: [
         {
             _id: { type: String },
-            title: { type: String, unique: true },
+            title: { type: String },
             currentCoverUrl: { type: String },
             totalVideos: { type: Number },
             additionDate: { type: Date },
