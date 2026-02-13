@@ -1,11 +1,11 @@
+import bcrypt from 'bcryptjs'
 import { Request, Response } from 'express'
+import jwt from 'jsonwebtoken'
 import { UpdateWithAggregationPipeline } from 'mongoose'
 import { v4 as uuid } from 'uuid'
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import { Playlist } from '../models/Playlist'
 import { IUser, User } from '../models/User'
 import { Video } from '../models/Video'
-import { Playlist } from '../models/Playlist'
 
 async function indexUser(req: Request, res: Response) {
     try {
@@ -64,7 +64,7 @@ async function loginUser(req: Request, res: Response) {
 
     try {
         const user = await User.findOne({ name })
-        let dateTokenExpires: string | number
+        let dateTokenExpires: number
         let dateCookieExpires: number
 
         if (!user) {
@@ -76,8 +76,8 @@ async function loginUser(req: Request, res: Response) {
         }
 
         if (hasConnect) {
-            dateTokenExpires = '7d'
-            dateCookieExpires = 604800000
+            dateTokenExpires = 7 * 24 * 60 * 60 // 7 days in seconds
+            dateCookieExpires = 7 * 24 * 60 * 60 * 1000 // 7 days in milliseconds
         } else {
             dateTokenExpires = 600
             dateCookieExpires = 600000
@@ -852,21 +852,21 @@ async function deleteUserPlaylistVideos(
 }
 
 export {
+    allVideoAndPlaylistData,
+    deleteUser,
+    deleteUserPlaylist,
+    deleteUserPlaylistVideos,
     indexUser,
     indexUserById,
-    storeUser,
-    loginUser,
-    updateUser,
-    deleteUser,
-    updateUserFavoriteVideos,
-    updateUserVideoHistoric,
-    updateUserPlaylistSelected,
-    allVideoAndPlaylistData,
-    updateUserProfilePicture,
     indexUserPlaylist,
+    loginUser,
+    storeUser,
     storeUserPlaylist,
-    updateUserPlaylist,
-    deleteUserPlaylist,
     storeUserPlaylistVideos,
-    deleteUserPlaylistVideos,
+    updateUser,
+    updateUserFavoriteVideos,
+    updateUserPlaylist,
+    updateUserPlaylistSelected,
+    updateUserProfilePicture,
+    updateUserVideoHistoric,
 }
